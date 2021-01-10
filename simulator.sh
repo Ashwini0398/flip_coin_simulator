@@ -1,8 +1,8 @@
 #! /bin/bash -x
 
-read -p " Please enter the choice 0 or 1 " choice
+read -p " Please enter the choice \n 1.HEAD \n 2.TAIL " choice
 
-cointoss=$((RANDOM%2))
+cointoss=$((RANDOM%2+1))
 
 if [ $choice -eq $cointoss ]
 then
@@ -10,3 +10,4 @@ then
 else
 	echo " Tail wins "
 fi
+echo " The winner is $cointoss  "
