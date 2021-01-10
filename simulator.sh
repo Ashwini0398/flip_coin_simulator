@@ -1,26 +1,35 @@
 #! /bin/bash -x
 
-head=1
+head=0
 tail=0
-count=0
-count1=0
-count2=0
 
-while (( $count != 100 ))
+while (( $head != 21 && $tail != 21 ))
 do
-	((count++))
+
 	cointoss=$((RANDOM%2))
 
-	if (( $cointoss == $head ))
+	if (( $cointoss == 0 ))
 	then
-		((count1++))
+		((head++))
 		echo " head wins "
-	elif (( $cointoss == $tail ))
-	then
-		((count2++))
+	else
+		((tail++))
 		echo " tail wins "
 	fi
+
 done
 
-echo $count1
-echo $count2
+if (( $head == 21 ))
+then
+	echo " you win $head"
+else
+	echo " you loose"
+fi
+
+if (( $head == 21 && $tail == 21 ))
+then
+	echo " tie "
+else
+	echo "loose"
+fi
+
